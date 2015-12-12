@@ -7,8 +7,15 @@ using System.Web;
 
 namespace MeetEric.Web
 {
-    public class AutomaticTelemetryHttpModule : IHttpModule
+    class AutomaticTelemetryHttpModule : IHttpModule
     {
+        private readonly string _configContents;
+
+        public AutomaticTelemetryHttpModule(string configXml)
+        {
+            _configContents = configXml;
+        }
+
         public void Init(HttpApplication context)
         {
             DeployConfigFile();
@@ -20,7 +27,7 @@ namespace MeetEric.Web
             // HACK: This should go away soon once application insights doesn't 
             // require reading configuration from a specific file on disk
 
-            File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ApplicationInsights.config"), Resources.ApplicationInsights, Encoding.UTF8);
+            File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ApplicationInsights.config"), _configContents, Encoding.UTF8);
         }
 
         public void Dispose()
