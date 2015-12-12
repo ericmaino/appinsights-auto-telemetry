@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package will enable application insights telemetry in your web application without having to deploy a config in every project</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright c MeetEric. All Rights Reserved.</copyright>
+    <copyright>Copyright © MeetEric.NET All Rights Reserved.</copyright>
     <tags>Analytics ApplicationInsights Telemetry AppInsights Azure HttpApplication</tags>
   </metadata>
 </package>
